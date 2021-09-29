@@ -1,17 +1,16 @@
-// Jenkinsfile
+//Jenkinsfile
 
-  stage('checkout') {
-    node {
-      checkout scm
-    }
-  }
+	stage('checkout'){
+		node{
+			checkout scm
+	}
+}
 
-  // Run terraform init
-  stage('Provision') {
-    node {
-          sh 'terraform init'
-          sh 'terraform plan -out=plan'
-	  //sh 'terraform apply plan'
-        }
-      }
-
+//Run terraform init
+	stage('Provision'){
+		node{
+			sh '/usr/local/bin/terraform init'
+			sh '/usr/local/bin/terraform plan -out=plan'
+			//sh 'terraform apply plan'
+	}
+}
